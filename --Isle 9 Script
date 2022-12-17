@@ -1,0 +1,33 @@
+loadstring(game:HttpGet('https://raw.githubusercontent.com/PascalHacks/Krypton/main/Games/3431407618'))()
+
+game.Players.LocalPlayer.PlayerGui.Krypton:Destroy()
+game:GetService("Players").TPSAimer.PlayerGui.Game.Alert["-150"]:Destroy()
+
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/insanedude59/UILib/main/source"))();
+
+lib:SetTitle("Isle 9") -- name <string>
+
+local tab1 = lib:NewTab("Isle 9, Main", "We are the Best!")
+local tab2 = lib:NewTab("Teleports", "You can teleport") -- name <string> description <string>
+tab1:NewDropdown("Dropdown thing",{"1","2","3","4","5"},"hi",function(selected) -- name <string> list <table> default <string> callback <function>
+print(selected)
+end)
+tab1:NewTextBox("WalkSpeed","Enter WalkSpeed Here",function(value) -- name <string> placeholdertext <string> callback <function>
+   _G.autoSpeed = true;
+
+   while _G.autoSpeed == true do
+     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
+     wait()
+     end
+end)
+tab1:NewToggle("Autofarm",false,function(value) -- name <string> default <bool> callback <function>
+   print(value)
+end)
+tab1:NewSlider("WalkSpeed",16,500,16,function(value) -- name <string> minimum <number> maximium <number> default <number> callback <function>
+   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
+end)
+tab2:NewButton("Teleport to Lab",function()-- name <string> callback <function>
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(291.284088, 20.2382774, 31310.9336, 0, 0, 1, 0, 1, -0, -1, 0, 0)
+   wait(1)
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2054.24902, -175.213211, -1415.98096, -0.994308233, 0, -0.106542081, 0, 1, 0, 0.106542081, 0, -0.994308233)
+end)
